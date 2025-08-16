@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Listing, Booking, Review
+from .models import Listing, Booking, Review, Payment
 
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,3 +36,10 @@ class ReviewSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         review = Review.objects.create(validated_data)
         return review
+    
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payment
+        fields = "__all__"
+        read_only_fields = ["status", "transaction_id", "created_at"]

@@ -16,6 +16,9 @@ pymysql.install_as_MySQLdb()
 import environ
 import os
 
+CHAPA_SECRET_KEY = os.getenv("CHAPA_SECRET_KEY")
+CHAPA_BASE_URL = "https://api.chapa.co/v1"
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
